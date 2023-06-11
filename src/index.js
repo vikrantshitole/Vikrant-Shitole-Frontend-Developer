@@ -7,10 +7,14 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'react-datetime-picker/dist/DateTimePicker.css';
 import 'react-calendar/dist/Calendar.css';
 import 'react-clock/dist/Clock.css';
+import { Provider } from 'react-redux';
+import store from './store/redux';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <React.StrictMode>
+  <Provider store={store}>
+
     <App />
+  </Provider>
   // </React.StrictMode>
 );
 

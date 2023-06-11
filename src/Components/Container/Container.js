@@ -3,8 +3,10 @@ import Dashboard from "../Dashboard/Dashboard";
 import SearchForm from "../SearchForm/SearchForm";
 import ListView from "../ListView/ListView";
 import * as service from "../../Service/service";
+import { setIsCapsule } from "../../store/actions";
+import { connect } from "react-redux";
 
-function Container() {
+function Container(props) {
   const [type, setType] = useState("");
   const [status, setStatus] = useState("");
   const [originalLaunch, setOriginalLaunch] = useState("");
@@ -29,29 +31,37 @@ function Container() {
       `limit=${page * pageSize}&offset=${
         (page - 1) * pageSize
       }`;
-    service
-      .fetchCapsule(reqData)
-      .then((res) => setList(res.data))
+      let fn='fetchCapsule'
+      if (props.is_capsulse) {
+        fn='fetchRockets'
+      }
+    service[fn](reqData)
+      .then((res) => {
+        setList(res.data)
+      })
       .catch((Err) => console.error(Err))
   };
   
   useEffect(()=>{
     fetchCapulses()
-  },[page])
+  },[page,props.is_capsulse])
   return (
     <div>
       <Dashboard />
       <section className="section">
         <div className="container">
-          <SearchForm
-            type={type}
-            setType={setType}
-            status={status}
-            setStatus={setStatus}
-            originalLaunch={originalLaunch}
-            setOriginalLaunch={setOriginalLaunch}
-            fetchCapulses={fetchCapulses}
-          />
+          {!props.is_capsulse?(
+            <SearchForm
+              type={type}
+              setType={setType}
+              status={status}
+              setStatus={setStatus}
+              originalLaunch={originalLaunch}
+              setOriginalLaunch={setOriginalLaunch}
+              fetchCapulses={fetchCapulses}
+            />
+
+          ):''}
           <ListView
           list={list}
           page={page}
@@ -64,4 +74,8 @@ function Container() {
     </div>
   );
 }
-export default React.memo(Container)
+
+const mapStateToProps = state =>({
+  is_capsulse: state.spacex.is_capsulse
+})
+export default connect(mapStateToProps)(React.memo(Container))

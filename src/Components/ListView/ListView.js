@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import * as service from "../../Service/service";
 import Capsule from "./CapsuleRecord";
 import { Fragment } from "react";
+import { connect } from "react-redux";
 
 export class ListView extends Component {
   constructor(props) {
@@ -31,6 +32,9 @@ export class ListView extends Component {
             ))}
           </div>
         </div>
+        {
+          this.props.is_capsulse?'':(
+
         <div className="row">
           <div className="mt-4 pt-2 col-lg-12">
             <nav aria-label="Page navigation example">
@@ -51,9 +55,14 @@ export class ListView extends Component {
             </nav>
           </div>
         </div>
+          )
+        }
       </Fragment>
     );
   }
 }
 
-export default ListView;
+const mapStateToProps = state =>({
+  is_capsulse: state.spacex.is_capsulse
+})
+export default connect(mapStateToProps)(ListView);
