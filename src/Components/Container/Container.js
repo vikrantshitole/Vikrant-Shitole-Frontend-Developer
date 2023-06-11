@@ -8,7 +8,36 @@ function Container() {
   const [type, setType] = useState("");
   const [status, setStatus] = useState("");
   const [originalLaunch, setOriginalLaunch] = useState("");
+  const [page, setPage] = useState(1);
+  const [totalPage, setTotalPage] = useState(2);
+  const [pageSize, setPageSize] = useState(10);
+  const [list,setList] = useState([])
+  const fetchCapulses = () => {
+    // console.log(this.props);
+    let reqData = "?";
+    if (status) {
+      reqData = reqData + `status=${status}&`;
+    }
+    if (originalLaunch) {
+      reqData = reqData + `original_launch=${new Date(originalLaunch).toISOString()}&`;
+    }
+    if (type) {
+      reqData = reqData + `type=${type}&`;
+    }
+    reqData =
+      reqData +
+      `limit=${page * pageSize}&offset=${
+        (page - 1) * pageSize
+      }`;
+    service
+      .fetchCapsule(reqData)
+      .then((res) => setList(res.data))
+      .catch((Err) => console.error(Err))
+  };
   
+  useEffect(()=>{
+    fetchCapulses()
+  },[page])
   return (
     <div>
       <Dashboard />
@@ -21,8 +50,16 @@ function Container() {
             setStatus={setStatus}
             originalLaunch={originalLaunch}
             setOriginalLaunch={setOriginalLaunch}
+            fetchCapulses={fetchCapulses}
           />
-         </div>
+          <ListView
+          list={list}
+          page={page}
+          totalPage={totalPage}
+            fetchCapulses={fetchCapulses}
+            changePage={setPage}
+          />
+        </div>
       </section>
     </div>
   );

@@ -17,7 +17,6 @@ let timeinterval;
     }]);
     useEffect(()=>{
         timeinterval = setInterval(()=>changeActiveSlide(),10000);
-        console.log('mounted');
         return ()=> {
             clearInterval(timeinterval)
         }
@@ -39,7 +38,6 @@ let timeinterval;
                 active = active +1;
             }
         }
-        console.log(active);
         setActiveSlide(active)
     }
   return (
