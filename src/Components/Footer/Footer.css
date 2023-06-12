@@ -1,0 +1,21 @@
+a {
+    color: whitesmoke !important;
+    text-decoration: none !important;
+    transition: all 0.3s;
+  }
+  
+  a:hover, a:focus {
+    text-decoration: solid !important;
+  }
+  
+  
+  
+  footer {
+    background: #212529;
+  }
+  .text-white{
+    color: white !important;
+  }
+  .text-small {
+    font-size: 0.9rem;
+  }

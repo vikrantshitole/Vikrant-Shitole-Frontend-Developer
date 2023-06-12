@@ -1,8 +1,9 @@
+import { SETISCAPSULSE } from "../actions";
+
 const spacex = (state={},action)=>{
     let newState;
-    console.log(state,action);
     switch(action.type){
-        case 'SET_ISCAPSULE':
+        case SETISCAPSULSE:
             newState = Object.assign({},state);
             newState.is_capsulse = action.is_capsulse;
             console.log(newState);

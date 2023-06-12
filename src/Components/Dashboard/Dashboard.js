@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import rocket from '../../assets/rocket.jpg';
+import rocket from '../../assets/rocketmoon.jpg';
 import spacex from '../../assets/SPACEX.jpg';
-import whatsspacex from '../../assets/whatsspacex.jpg';
+import whatsspacex from '../../assets/rocketlaunch.jpg';
 import './Dashboard.css'
 let timeinterval;
  function Dashboard() {
@@ -41,7 +41,7 @@ let timeinterval;
         setActiveSlide(active)
     }
   return (
-    <div id="carouselExampleIndicators" className="carousel slide" >
+    <div  className="carousel slide carousel-fade" >
   <ol className="carousel-indicators">
     {
         carouselData.map(s=> <li data-slide-to={s.id} key={s.id} className={s.id === activeslide? 'active':""}></li>)
@@ -56,11 +56,11 @@ let timeinterval;
 
     ))}
   </div>
-  <a className="carousel-control-prev"  role="button" data-slide="prev" onClick={()=>changeActiveSlide('prev')}>
+  <a className="carousel-control carousel-control-prev"  role="button" data-slide="prev" onClick={()=>changeActiveSlide('prev')}>
     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
     <span className="sr-only">Previous</span>
   </a>
-  <a className="carousel-control-next"  role="button" data-slide="next" onClick={()=>changeActiveSlide('next')}>
+  <a className="carousel-control carousel-control-next"  role="button" data-slide="next" onClick={()=>changeActiveSlide('next')}>
     <span className="carousel-control-next-icon" aria-hidden="true"></span>
     <span className="sr-only">Next</span>
   </a>

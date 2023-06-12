@@ -36,7 +36,7 @@ export class ListView extends Component {
           this.props.is_capsulse?'':(
 
         <div className="row">
-          <div className="mt-4 pt-2 col-lg-12">
+          <div className="mb-4 pt-2 col-lg-12">
             <nav aria-label="Page navigation example">
               <div className="pagination job-pagination mb-0 justify-content-center">
                 {
