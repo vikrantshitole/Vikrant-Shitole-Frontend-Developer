@@ -1,10 +1,10 @@
-import api from './request';
+import api from "./request";
 
-export const fetchCapsule = (reqData)=>{
-    return api.get('capsules'+reqData)
-}
+export const fetchCapsule = (reqData) => {
+  return api.get("capsules" + reqData);
+};
 
-export const fetchRockets = ()=>{
-    return api.get('rockets')
-}
-export default api
+export const fetchRockets = () => {
+  return api.get("rockets");
+};
+export default api;

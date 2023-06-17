@@ -5,7 +5,7 @@ import whatsspacex from "../../assets/rocketlaunch.jpg";
 import "./Dashboard.css";
 let timeinterval;
 function Dashboard() {
-  const [carouselData, setCarouselData] = useState([
+  const [carouselData] = useState([
     {
       id: 0,
       img: spacex,
@@ -28,7 +28,7 @@ function Dashboard() {
   const [activeslide, setActiveSlide] = useState(0);
   const changeActiveSlide = (direction) => {
     let active = activeslide;
-    if (direction == "prev") {
+    if (direction === "prev") {
       if (activeslide === 0) {
         active = carouselData.length - 1;
       } else {
@@ -70,7 +70,7 @@ function Dashboard() {
           </div>
         ))}
       </div>
-      <a
+      <span
         className="carousel-control carousel-control-prev"
         role="button"
         data-slide="prev"
@@ -78,8 +78,8 @@ function Dashboard() {
       >
         <span className="carousel-control-prev-icon" aria-hidden="true"></span>
         <span className="sr-only">Previous</span>
-      </a>
-      <a
+      </span>
+      <span
         className="carousel-control carousel-control-next"
         role="button"
         data-slide="next"
@@ -87,7 +87,7 @@ function Dashboard() {
       >
         <span className="carousel-control-next-icon" aria-hidden="true"></span>
         <span className="sr-only">Next</span>
-      </a>
+      </span>
     </div>
   );
 }
