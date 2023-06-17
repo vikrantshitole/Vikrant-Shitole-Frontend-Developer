@@ -1,9 +1,7 @@
-// api.js
-import axios from 'axios';
+import axios from "axios";
 
 const api = axios.create({
-  baseURL: 'https://api.spacexdata.com/v3/', // Replace with your API base URL
+  baseURL: "https://api.spacexdata.com/v3/", 
 });
-
 
 export default api;
