@@ -3,6 +3,7 @@ import rocket from "../../assets/rocketmoon.jpg";
 import spacex from "../../assets/SPACEX.jpg";
 import whatsspacex from "../../assets/rocketlaunch.jpg";
 import "./Dashboard.css";
+import CarouselItem from "./CarouselItem/CarouselItem";
 let timeinterval;
 function Dashboard() {
   const [carouselData] = useState([
@@ -56,19 +57,8 @@ function Dashboard() {
       </ol>
       <div className="carousel-inner">
         {carouselData.map((s) => (
-          <div
-            className={
-              s.id === activeslide ? "carousel-item active" : "carousel-item"
-            }
-            key={s.id}
-          >
-            <img
-              className="d-block w-100 fixed-height"
-              src={s.img}
-              alt={s.id + "slide"}
-            />
-          </div>
-        ))}
+         <CarouselItem item={s} key={s.id} activeslide={activeslide} />
+         ))}
       </div>
       <span
         className="carousel-control carousel-control-prev"
