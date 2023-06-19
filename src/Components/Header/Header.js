@@ -8,7 +8,7 @@ import {connect } from 'react-redux'
       <span className="navbar-brand ml-5 mb-0 h1">Space X</span>
       <div className="form-check form-switch">
         <input className="form-check-input" type="checkbox" role="switch" onChange={(e)=>{props.setIsCapsule(e.target.checked)}} />
-        <label className="form-check-label"  >{props.is_capsulse? 'Rocket': 'Capsulse'}</label>
+        <label className="form-check-label" role='label' >{props.is_capsulse? 'Rocket': 'Capsulse'}</label>
       </div>
     </nav>
     </Fragment>
