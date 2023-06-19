@@ -46,12 +46,13 @@ function Dashboard() {
   };
   return (
     <div className="carousel slide carousel-fade">
-      <ol className="carousel-indicators">
+      <ol className="carousel-indicators" aria-label="carousel-indicators">
         {carouselData.map((s) => (
           <li
             data-slide-to={s.id}
             key={s.id}
             className={s.id === activeslide ? "active" : ""}
+            aria-label="carousel-indicator"
           ></li>
         ))}
       </ol>
@@ -64,6 +65,7 @@ function Dashboard() {
         className="carousel-control carousel-control-prev"
         role="button"
         data-slide="prev"
+        aria-label="prev"
         onClick={() => changeActiveSlide("prev")}
       >
         <span className="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -73,6 +75,7 @@ function Dashboard() {
         className="carousel-control carousel-control-next"
         role="button"
         data-slide="next"
+        aria-label="next"
         onClick={() => changeActiveSlide("next")}
       >
         <span className="carousel-control-next-icon" aria-hidden="true"></span>
