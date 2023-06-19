@@ -20,7 +20,7 @@ function CapsuleRecord(props) {
             <div className="col-lg-5">
               <div className="candidate-list-content mt-3 mt-lg-0">
                 <h5 className="fs-19 mb-0">
-                  <span className="primary-link" href="#">
+                  <span className="primary-link" aria-label="serial-id">
                     {props.is_capsulse
                       ? props.item.rocket_id
                       : props.item.capsule_serial}
@@ -33,6 +33,7 @@ function CapsuleRecord(props) {
                           : props.item.status
                       ] + " badge ms-1"
                     }
+                    aria-label="status"
                   >
                     <i className="mdi mdi-star align-middle"></i>
                     {props.is_capsulse
@@ -49,14 +50,14 @@ function CapsuleRecord(props) {
                     : props.item.details}
                 </p>
                 <ul className="list-inline mb-0 text-muted">
-                  <li className="list-inline-item">
+                  <li className="list-inline-item" aria-label="type">
                     {" "}
                     {props.is_capsulse
                       ? props.item.rocket_type
                       : props.item.type}{" "}
                     |{" "}
                   </li>
-                  <li className="list-inline-item">
+                  <li className="list-inline-item" aria-label="reuse">
                     <strong>
                       {" "}
                       {props.is_capsulse
