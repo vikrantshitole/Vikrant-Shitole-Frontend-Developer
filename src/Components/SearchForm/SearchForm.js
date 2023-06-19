@@ -57,9 +57,7 @@ export default function SearchForm(props) {
                       className="form-control"
                       onChange={(e) => setStatus(e.target.value)}
                       data-trigger="true"
-                      name="choices-single-categories"
-                      id="choices-single-categories"
-                      aria-label="Default select example"
+                      aria-label="status"
                       value={status}
                     >
                       <option value="">Select Status</option>
@@ -83,7 +81,7 @@ export default function SearchForm(props) {
               </div>
               <div className="col-lg-3">
                 <div onClick={() => props.fetchCapulses(true)}>
-                  <span className="btn btn-primary" href="">
+                  <span className="btn btn-primary" aria-label="filter">
                     Filter
                   </span>
                 </div>

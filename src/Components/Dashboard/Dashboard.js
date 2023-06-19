@@ -3,6 +3,7 @@ import rocket from "../../assets/rocketmoon.jpg";
 import spacex from "../../assets/SPACEX.jpg";
 import whatsspacex from "../../assets/rocketlaunch.jpg";
 import "./Dashboard.css";
+import CarouselItem from "./CarouselItem/CarouselItem";
 let timeinterval;
 function Dashboard() {
   const [carouselData] = useState([
@@ -45,35 +46,26 @@ function Dashboard() {
   };
   return (
     <div className="carousel slide carousel-fade">
-      <ol className="carousel-indicators">
+      <ol className="carousel-indicators" aria-label="carousel-indicators">
         {carouselData.map((s) => (
           <li
             data-slide-to={s.id}
             key={s.id}
             className={s.id === activeslide ? "active" : ""}
+            aria-label="carousel-indicator"
           ></li>
         ))}
       </ol>
       <div className="carousel-inner">
         {carouselData.map((s) => (
-          <div
-            className={
-              s.id === activeslide ? "carousel-item active" : "carousel-item"
-            }
-            key={s.id}
-          >
-            <img
-              className="d-block w-100 fixed-height"
-              src={s.img}
-              alt={s.id + "slide"}
-            />
-          </div>
-        ))}
+         <CarouselItem item={s} key={s.id} activeslide={activeslide} />
+         ))}
       </div>
       <span
         className="carousel-control carousel-control-prev"
         role="button"
         data-slide="prev"
+        aria-label="prev"
         onClick={() => changeActiveSlide("prev")}
       >
         <span className="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -83,6 +75,7 @@ function Dashboard() {
         className="carousel-control carousel-control-next"
         role="button"
         data-slide="next"
+        aria-label="next"
         onClick={() => changeActiveSlide("next")}
       >
         <span className="carousel-control-next-icon" aria-hidden="true"></span>
