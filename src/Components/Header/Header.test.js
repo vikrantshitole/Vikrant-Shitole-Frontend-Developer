@@ -1,3 +1,4 @@
+import { act } from "react-dom/test-utils"
 import { render, screen } from "../../test-utils"
 import Header from "./Header"
 import user from '@testing-library/user-event'
@@ -35,7 +36,7 @@ describe('Header',()=>{
         const labelElement = screen.getByRole('label')
         expect(labelElement).toHaveTextContent('Capsulse');
 
-        await user.click(checkboxElement);
+       await act(async()=>await user.click(checkboxElement)) ;
         expect(checkboxElement).toBeChecked()
         expect(labelElement).toHaveTextContent('Rocket')
         
